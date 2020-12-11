@@ -23,5 +23,7 @@ There are 2 tests written in testCases.py.
 
 test1() uses a predefined array of potential inputs values (most of them aren't direct matches to the keys in the dictionary) and matches them to the keys. 
 To use test1(), no commandLine arguments are needed.
+
+
 test2() reads 1 or more csv files and prints the input values and the matching key. 
 To use test2(), each commandLine argument should be the name of the .csv file, which should be in the directory. 
