@@ -15,7 +15,8 @@ Python
 The matching algorithm uses Levenshtein distance to calculate the similarity between the input field and the key in the dictionary.
 
 ## Installation
-All files should be placed in the same directory and run. 
+All files should be placed in the same directory.
+Then, run testCases.py (e.g. /Users/aishwaryavarma/Desktop/goldfinch/dictionary/testCases.py) with the appropriate command-line arguments defined below. 
 
 ## Tests / How to Use?
 There are 2 tests written in testCases.py. 
