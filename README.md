@@ -1,23 +1,23 @@
 # Goldfinch
 
 
-Project title
+## Project title
 Python Dictionary Input Sequence Matcher
 
-Project description
+## Project description
 This project reads a .csv file with inputs (e.g. First Name, DOB) and matches each input value to a key in a predefined dictionary. Each key maps to an array of booleans that represent if encryption and/or masking should be applied. Each input value is matched to a key based on a matching algorithm that takes into account simple typos, case, acronyms, and some similar names/symbols. 2 provided .csv files have also been provided (SampleData.csv and SampleData2.csv) as well as testCases.py, which tests the program. 
 
 
-Tech/Framework used
+## Tech/Framework used
 Python
 
-Features
+## Features
 The matching algorithm uses Levenshtein distance to calculate the similarity between the input field and the key in the dictionary.
 
-Installation
+## Installation
 All files should be placed in the same directory and run. 
 
-Tests / How to Use?
+## Tests / How to Use?
 There are 2 tests written in testCases.py. 
 
 test1() uses a predefined array of potential inputs values (most of them aren't direct matches to the keys in the dictionary) and matches them to the keys. 
