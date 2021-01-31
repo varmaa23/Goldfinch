@@ -22,7 +22,7 @@ All files should be placed in the same directory and run query_match.py (goldfin
 Run query_match.py using the following statement:
 python3 query_match.py
 
-query_match.py expects a config.py file in the same directory where config.py contains the database's name, the username, and the password. 
-The database have a table schema_info where schema_info has a column field_name. 
+query_match.py expects a config.py file in the same directory, where config.py contains the database's name, the username (user), and the password. 
+The database must have a table "schema_info" where schema_info has a column "field_name". 
 
 A sample schema_info.csv has been provided which can be copied into the postgresql table. 
