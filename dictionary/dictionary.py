@@ -13,21 +13,21 @@ def getInputs(fileName):
     return fields
 
 
+def initialize_dictionary():
+    """Dictionary matches the string field to an array of boolean value compliance guidelines as follows: inputField: [encryption, masking]"""
 
-# Dictionary matches the string field to an array of boolean value compliance guidelines as follows
-#   inputField: [encryption, masking]
-IdentifiedPIIs = {
-    "First Name": [True, False],
-    "Middle Name": [True, False],
-    "Last Name": [True, False],
-    "Age": [True, False], 
-    "Date of Birth": [True, False],
-    "Credit Card": [True, True],
-    "Phone #": [True, True],
-    "Address": [True, False],
-    "Email": [True, True],
-    "Credit Score": [True, True]
-} 
+    identified_PIIs = {
+        "Name": [True, False],
+        "Age": [True, False], 
+        "Date of Birth": [True, False],
+        "Credit Card": [False, True],
+        "Phone #": [True, True],
+        "Address": [True, False],
+        "Email": [True, True],
+        "Credit Score": [True, True],
+        "Device ID": [True, True]
+    } 
+    return identified_PIIs
 
 # Uses Levenshtein distance to determine the similarity between two strings and returns a ratio between 0 and 1
 def similarity(a, b):
@@ -38,16 +38,20 @@ def acronym(string):
     return ''.join(string[0].upper() for string in string.split())
 
 
-# This function matches the input value in the .csv file (keyValue) to a key in the IdentifiedPIIs dictionary. It takes into account
+def getValue(key, identified_PIIs):
+    return identified_PIIs.get(key)
+
+
+# This function matches the input value in the .csv file (keyValue) to a key in the identified_PIIs dictionary. It takes into account
 # capitalization and minor typos, as well as acronyms and some cases of similar meanings.
-def matcher(keyValue):
+def matcher(keyValue, identified_PIIs):
     # these variables are initialized so that they can be used in case there are typos (and words don't directly match).
     # this case will be handled at the end of the outer for loop.
     greatestSimilarity = 0 # represents the greatest similarity score between a key in the dictionary and keyValue
     bestMatch = None
 
     # loops through all of the keys in the dictionary
-    for key in IdentifiedPIIs: 
+    for key in identified_PIIs: 
         curSimilarity = similarity(key.casefold(), keyValue.casefold()) 
 
         if(curSimilarity >= 0.8): # if keyValue is 100% similar to the key, just return the key
@@ -77,10 +81,6 @@ def matcher(keyValue):
             greatestSimilarity = curSimilarity
             bestMatch = key
     return bestMatch
-
-
-def getValue(key):
-    return IdentifiedPIIs.get(key)
 
 
 
